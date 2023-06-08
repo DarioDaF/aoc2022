@@ -1,5 +1,6 @@
 
 from utils import readInput, Pt
+import time
 import argparse
 
 ap = argparse.ArgumentParser()
@@ -7,6 +8,8 @@ ap.add_argument('--part2', action='store_true')
 args = ap.parse_args()
 
 text = readInput()
+
+start_time = time.monotonic()
 
 W = 7
 if args.part2:
@@ -157,5 +160,8 @@ while True:
             break
         newRock = True
 
+end_time = time.monotonic()
+
 printBoard(board, 20)
 print(f'Height: {topY + totCleaned}')
+print(f'Compute time: {end_time - start_time} s')
